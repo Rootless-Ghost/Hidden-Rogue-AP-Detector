@@ -19,6 +19,12 @@ A Python-based tool for detecting rogue/unauthorized wireless access points on a
 - **GPS Integration**: Optional tracking of physical locations when detecting APs
 - **Comprehensive Logging**: Detailed records of all detected networks
 
+## Screenshots
+
+### Passive Scanning - Rogue AP Detection
+![Rogue AP Detection](screenshots/rogue_ap_detection.png)
+
+
 ## Requirements
 
 - Python 3.x
