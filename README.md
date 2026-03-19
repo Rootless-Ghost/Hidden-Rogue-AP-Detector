@@ -22,7 +22,7 @@ A Python-based tool for detecting rogue/unauthorized wireless access points on a
 ## Screenshots
 
 ### Passive Scanning - Rogue AP Detection
-![Rogue AP Detection](screenshots/rogue_ap_detection.png)
+![Rogue AP Detection](screenshots/rogue-ap-detection.png)
 
 
 ## Requirements
