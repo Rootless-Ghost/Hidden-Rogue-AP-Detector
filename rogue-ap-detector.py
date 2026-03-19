@@ -35,6 +35,7 @@ import subprocess
 from datetime import datetime
 from threading import Thread
 from typing import Dict, List, Optional, Set, Tuple
+import hashlib
 
 try:
     from scapy.all import Dot11, Dot11Beacon, Dot11Elt, sniff
@@ -64,6 +65,18 @@ logger = logging.getLogger(__name__)
 
 class RogueAPDetector:
     """Main class for detecting rogue access points"""
+    
+    def _mac_fingerprint(self, mac_address: str) -> str:
+        """
+        Return a short, non-reversible fingerprint of a MAC address for logging.
+
+        This helps avoid logging the raw MAC address while still allowing
+        correlation of log messages referring to the same address.
+        """
+        if not mac_address:
+            return "unknown"
+        digest = hashlib.sha256(mac_address.encode("utf-8")).hexdigest()
+        return digest[:8]
     
     def __init__(self, interface: str, whitelist_file: str = "whitelist.json", 
                  scan_interval: int = 30, use_gps: bool = False,
@@ -135,7 +148,10 @@ class RogueAPDetector:
         mac_address = mac_address.upper()
         self.whitelist.add(mac_address)
         self._save_whitelist(self.whitelist)
-        logger.info(f"Added {mac_address} to whitelist")
+        logger.info(
+            "Added MAC address to whitelist (id=%s)",
+            self._mac_fingerprint(mac_address),
+        )
     
     def remove_from_whitelist(self, mac_address: str) -> None:
         """Remove an AP from the whitelist"""
@@ -143,9 +159,15 @@ class RogueAPDetector:
         if mac_address in self.whitelist:
             self.whitelist.remove(mac_address)
             self._save_whitelist(self.whitelist)
-            logger.info(f"Removed {mac_address} from whitelist")
+            logger.info(
+                "Removed MAC address from whitelist (id=%s)",
+                self._mac_fingerprint(mac_address),
+            )
         else:
-            logger.warning(f"{mac_address} not found in whitelist")
+            logger.warning(
+                "MAC address not found in whitelist (id=%s)",
+                self._mac_fingerprint(mac_address),
+            )
     
     def get_gps_location(self) -> Optional[Tuple[float, float]]:
         """Get current GPS coordinates if available"""
