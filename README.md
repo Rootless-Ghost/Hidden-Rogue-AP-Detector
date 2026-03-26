@@ -1,3 +1,5 @@
+<div align="center">
+
 # Hidden Rogue AP Detector
 
 A Python-based tool for detecting rogue/unauthorized wireless access points on a network using RSSI signal strength analysis.
@@ -7,6 +9,8 @@ A Python-based tool for detecting rogue/unauthorized wireless access points on a
 ![Linux Compatible](https://img.shields.io/badge/Linux-Compatible-green.svg)
 ![Monitor Mode](https://img.shields.io/badge/Monitor%20Mode-Supported-green.svg)
 ![Kali Linux](https://img.shields.io/badge/Kali%20Linux-Compatible-blue.svg)
+
+</div>
 
 ## Features
 
