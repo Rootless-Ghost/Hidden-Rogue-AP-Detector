@@ -1,0 +1,4 @@
+scapy>=2.4.5
+
+# Optional: GPS integration support
+# gpsd-py3>=0.3.0
