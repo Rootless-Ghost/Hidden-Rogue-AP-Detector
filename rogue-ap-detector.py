@@ -248,7 +248,7 @@ class RogueAPDetector:
                 return -(256-packet[RadioTap].dBm_AntSignal)
             # Default to a very weak signal if we can't determine it
             return -100
-        except:
+        except Exception:
             return -100
     
     def _packet_handler(self, packet) -> None:
