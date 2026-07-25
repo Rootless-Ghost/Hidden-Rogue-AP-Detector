@@ -1,5 +1,11 @@
 <div align="center">
 
+> ⚠️ **Note:** This tool has been superseded by
+> [WifiForge](https://github.com/Rootless-Ghost/WifiForge), which includes
+> rogue AP detection as part of a full 802.11 attack detection suite.
+
+---
+
 # Hidden Rogue AP Detector
 
 A Python-based tool for detecting rogue/unauthorized wireless access points on a network using RSSI signal strength analysis.
