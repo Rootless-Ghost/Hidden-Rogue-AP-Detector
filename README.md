@@ -1,8 +1,9 @@
 <div align="center">
 
-> ⚠️ **Note:** This tool has been superseded by
-> [WifiForge](https://github.com/Rootless-Ghost/WifiForge), which includes
-> rogue AP detection as part of a full 802.11 attack detection suite.
+> ⚠️ **Archived.** This tool did RSSI-based rogue AP detection with whitelist
+> authorization and GPS tracking. [WifiForge](https://github.com/Rootless-Ghost/WifiForge) covers general 802.11 security
+> assessment but does not implement rogue AP detection, AP whitelisting, or
+> location tracking.
 
 ---
 
